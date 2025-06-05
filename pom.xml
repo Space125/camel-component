@@ -12,8 +12,6 @@
     <packaging>jar</packaging>
 
     <properties>
-        <firstVersion>1.0.0</firstVersion>
-        <camel-prepare-component>true</camel-prepare-component>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,6 +33,10 @@
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-component-maven-plugin</artifactId>
                 <version>${camel.version}</version>
+                <configuration>
+                    <sourcesOutputDir>src/generated/java</sourcesOutputDir>
+                    <resourcesOutputDir>src/generated/resources</resourcesOutputDir>
+                </configuration>
                 <executions>
                     <execution>
                         <id>generate</id>
@@ -70,6 +72,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -80,6 +83,7 @@
                 </configuration>
             </plugin>
         </plugins>
+
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -90,6 +94,10 @@
                     <include>**/*.svg</include>
                     <include>**/*.png</include>
                 </includes>
+            </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
     </build>

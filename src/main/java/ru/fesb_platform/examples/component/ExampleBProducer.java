@@ -1,13 +1,17 @@
 package ru.fesb_platform.examples.component;
 
-//public class ExampleBProducer extends DefaultProducer {
-//
-//    public ExampleBProducer(Endpoint endpoint) {
-//        super(endpoint);
-//    }
-//
-//    @Override
-//    public void process(Exchange exchange) throws Exception {
-//        exchange.getIn().setBody("Hello World from ExampleBProducer");
-//    }
-//}
+import org.apache.camel.Endpoint;
+import org.apache.camel.Exchange;
+import org.apache.camel.support.DefaultProducer;
+
+public class ExampleBProducer extends DefaultProducer {
+
+    public ExampleBProducer(Endpoint endpoint) {
+        super(endpoint);
+    }
+
+    @Override
+    public void process(Exchange exchange) throws Exception {
+        exchange.getIn().setBody("Hello World from ExampleBProducer");
+    }
+}
